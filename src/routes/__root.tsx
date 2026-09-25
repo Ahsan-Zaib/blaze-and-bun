@@ -77,21 +77,48 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Blaze & Bun — Flame-grilled burgers, chicken & pizza" },
+      {
+        name: "description",
+        content:
+          "Order flame-grilled burgers, crispy chicken and stone-baked pizza from your nearest Blaze & Bun kitchen. Delivery, pickup and dine-in.",
+      },
+      { name: "author", content: "Blaze & Bun" },
+      { name: "theme-color", content: "#221c18" },
+      { property: "og:title", content: "Blaze & Bun — Flame-grilled burgers, chicken & pizza" },
+      {
+        property: "og:description",
+        content: "Order flame-grilled burgers, crispy chicken and stone-baked pizza. Delivery, pickup and dine-in.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap",
+      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          name: "Blaze & Bun",
+          servesCuisine: ["Burgers", "Fried Chicken", "Pizza"],
+          priceRange: "$$",
+          acceptsReservations: false,
+areaServed: "Downtown, Harbour Walk, Northgate, Campus",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
