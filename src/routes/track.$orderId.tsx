@@ -23,10 +23,10 @@ export const Route = createFileRoute("/track/$orderId")({
 
 const STEPS: Array<{ id: OrderStatus; label: string; blurb: string; icon: typeof Flame }> = [
   { id: "received", label: "Order received", blurb: "The kitchen has your ticket.", icon: ClipboardCheck },
-  { id: "confirmed", label: "Confirmed", blurb: "Everything is in stock and priced up.", icon: CheckCircle2 },
+  { id: "accepted", label: "Accepted", blurb: "Everything is in stock and priced up.", icon: CheckCircle2 },
   { id: "preparing", label: "Preparing", blurb: "On the flame grill right now.", icon: ChefHat },
   { id: "ready", label: "Ready", blurb: "Boxed, bagged and sealed.", icon: PackageCheck },
-  { id: "onway", label: "On the way", blurb: "Your rider is heading over.", icon: Bike },
+  { id: "out_for_delivery", label: "On the way", blurb: "Your rider is heading over.", icon: Bike },
   { id: "delivered", label: "Delivered", blurb: "Enjoy every bite.", icon: Flame },
 ];
 
