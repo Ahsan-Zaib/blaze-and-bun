@@ -14,6 +14,7 @@ import { Route as BranchesRouteImport } from './routes/branches'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as DealsRouteImport } from './routes/deals'
+import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as MenuIndexRouteImport } from './routes/menu.index'
 import { Route as MenuCategoryRouteImport } from './routes/menu.$category'
 import { Route as OrderOrderIdRouteImport } from './routes/order.$orderId'
@@ -43,6 +44,11 @@ const CheckoutRoute = CheckoutRouteImport.update({
 const DealsRoute = DealsRouteImport.update({
   id: '/deals',
   path: '/deals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RewardsRoute = RewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenuIndexRoute = MenuIndexRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/deals': typeof DealsRoute
+  '/rewards': typeof RewardsRoute
   '/menu/$category': typeof MenuCategoryRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/deals': typeof DealsRoute
+  '/rewards': typeof RewardsRoute
   '/menu/$category': typeof MenuCategoryRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/deals': typeof DealsRoute
+  '/rewards': typeof RewardsRoute
   '/menu/$category': typeof MenuCategoryRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/deals'
+    | '/rewards'
     | '/menu/$category'
     | '/order/$orderId'
     | '/product/$slug'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/deals'
+    | '/rewards'
     | '/menu/$category'
     | '/order/$orderId'
     | '/product/$slug'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/deals'
+    | '/rewards'
     | '/menu/$category'
     | '/order/$orderId'
     | '/product/$slug'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   DealsRoute: typeof DealsRoute
+  RewardsRoute: typeof RewardsRoute
   MenuCategoryRoute: typeof MenuCategoryRoute
   OrderOrderIdRoute: typeof OrderOrderIdRoute
   ProductSlugRoute: typeof ProductSlugRoute
@@ -195,6 +208,13 @@ declare module '@tanstack/react-router' {
       path: '/deals'
       fullPath: '/deals'
       preLoaderRoute: typeof DealsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rewards': {
+      id: '/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof RewardsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu/': {
@@ -241,6 +261,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   DealsRoute: DealsRoute,
+  RewardsRoute: RewardsRoute,
   MenuCategoryRoute: MenuCategoryRoute,
   OrderOrderIdRoute: OrderOrderIdRoute,
   ProductSlugRoute: ProductSlugRoute,
