@@ -10,11 +10,16 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as BranchesRouteImport } from './routes/branches'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DealsRouteImport } from './routes/deals'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RewardsRouteImport } from './routes/rewards'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as MenuIndexRouteImport } from './routes/menu.index'
 import { Route as MenuCategoryRouteImport } from './routes/menu.$category'
 import { Route as OrderOrderIdRouteImport } from './routes/order.$orderId'
@@ -24,6 +29,11 @@ import { Route as TrackOrderIdRouteImport } from './routes/track.$orderId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BranchesRoute = BranchesRouteImport.update({
@@ -41,14 +51,34 @@ const CheckoutRoute = CheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DealsRoute = DealsRouteImport.update({
   id: '/deals',
   path: '/deals',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RewardsRoute = RewardsRouteImport.update({
   id: '/rewards',
   path: '/rewards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenuIndexRoute = MenuIndexRouteImport.update({
@@ -79,11 +109,16 @@ const TrackOrderIdRoute = TrackOrderIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/branches': typeof BranchesRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/deals': typeof DealsRoute
+  '/faq': typeof FaqRoute
+  '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/terms': typeof TermsRoute
   '/menu/$category': typeof MenuCategoryRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -92,11 +127,16 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/branches': typeof BranchesRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/deals': typeof DealsRoute
+  '/faq': typeof FaqRoute
+  '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/terms': typeof TermsRoute
   '/menu/$category': typeof MenuCategoryRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -106,11 +146,16 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/branches': typeof BranchesRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/deals': typeof DealsRoute
+  '/faq': typeof FaqRoute
+  '/privacy': typeof PrivacyRoute
   '/rewards': typeof RewardsRoute
+  '/terms': typeof TermsRoute
   '/menu/$category': typeof MenuCategoryRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -121,11 +166,16 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/branches'
     | '/cart'
     | '/checkout'
+    | '/contact'
     | '/deals'
+    | '/faq'
+    | '/privacy'
     | '/rewards'
+    | '/terms'
     | '/menu/$category'
     | '/order/$orderId'
     | '/product/$slug'
@@ -134,11 +184,16 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/branches'
     | '/cart'
     | '/checkout'
+    | '/contact'
     | '/deals'
+    | '/faq'
+    | '/privacy'
     | '/rewards'
+    | '/terms'
     | '/menu/$category'
     | '/order/$orderId'
     | '/product/$slug'
@@ -147,11 +202,16 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/branches'
     | '/cart'
     | '/checkout'
+    | '/contact'
     | '/deals'
+    | '/faq'
+    | '/privacy'
     | '/rewards'
+    | '/terms'
     | '/menu/$category'
     | '/order/$orderId'
     | '/product/$slug'
@@ -161,11 +221,16 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   BranchesRoute: typeof BranchesRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
+  ContactRoute: typeof ContactRoute
   DealsRoute: typeof DealsRoute
+  FaqRoute: typeof FaqRoute
+  PrivacyRoute: typeof PrivacyRoute
   RewardsRoute: typeof RewardsRoute
+  TermsRoute: typeof TermsRoute
   MenuCategoryRoute: typeof MenuCategoryRoute
   OrderOrderIdRoute: typeof OrderOrderIdRoute
   ProductSlugRoute: typeof ProductSlugRoute
@@ -180,6 +245,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/branches': {
@@ -203,6 +275,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/deals': {
       id: '/deals'
       path: '/deals'
@@ -210,11 +289,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DealsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rewards': {
       id: '/rewards'
       path: '/rewards'
       fullPath: '/rewards'
       preLoaderRoute: typeof RewardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu/': {
@@ -257,11 +357,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   BranchesRoute: BranchesRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
+  ContactRoute: ContactRoute,
   DealsRoute: DealsRoute,
+  FaqRoute: FaqRoute,
+  PrivacyRoute: PrivacyRoute,
   RewardsRoute: RewardsRoute,
+  TermsRoute: TermsRoute,
   MenuCategoryRoute: MenuCategoryRoute,
   OrderOrderIdRoute: OrderOrderIdRoute,
   ProductSlugRoute: ProductSlugRoute,
