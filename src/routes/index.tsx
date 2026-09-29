@@ -243,7 +243,7 @@ function Home() {
       <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 lg:grid-cols-2">
         <Reveal>
           <img
-            src={products[4].image}
+            src={products[4]?.image}
             alt="Crispy fried chicken pieces fresh from the fryer"
             loading="lazy"
             width={800}

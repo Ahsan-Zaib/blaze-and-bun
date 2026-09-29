@@ -58,7 +58,7 @@ export function BranchStrip() {
                     : "rounded-full px-3 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
                 }
               >
-                {t === "dinein" ? "Dine-in" : t[0].toUpperCase() + t.slice(1)}
+                {t === "dinein" ? "Dine-in" : t.charAt(0).toUpperCase() + t.slice(1)}
               </button>
             ))}
           </div>
