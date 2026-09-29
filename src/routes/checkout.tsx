@@ -103,7 +103,7 @@ function CheckoutPage() {
       subtotal,
       deliveryFee,
       discount,
-      promoCode: promoCode ?? undefined,
+      ...(promoCode ? { promoCode } : {}),
       tip,
       total,
     });
