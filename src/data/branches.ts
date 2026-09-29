@@ -97,8 +97,8 @@ export function getBranch(id: string | null | undefined): Branch | undefined {
 /** Demo open/closed check based on the branch's published hours. */
 export function isOpenNow(branch: Branch, now = new Date()): boolean {
   const mins = now.getHours() * 60 + now.getMinutes();
-  const [oh, om] = branch.opensAt.split(":").map(Number);
-  const [ch, cm] = branch.closesAt.split(":").map(Number);
+  const [oh = 0, om = 0] = branch.opensAt.split(":").map(Number);
+  const [ch = 0, cm = 0] = branch.closesAt.split(":").map(Number);
   const open = oh * 60 + om;
   const close = ch * 60 + cm;
   return close < open ? mins >= open || mins <= close : mins >= open && mins <= close;

@@ -255,7 +255,7 @@ function CartPage() {
 
       <CustomizeDialog
         product={editingProduct}
-        editLine={editing ?? undefined}
+        {...(editing ? { editLine: editing } : {})}
         open={Boolean(editing)}
         onOpenChange={(v) => {
           if (!v) setEditing(null);

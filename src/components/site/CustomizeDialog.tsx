@@ -97,7 +97,7 @@ export function CustomizeDialog({
       basePrice: product!.price,
       quantity,
       options,
-      notes: notes.trim() || undefined,
+      ...(notes.trim() ? { notes: notes.trim() } : {}),
     };
     if (editLine) {
       updateItem(editLine.lineId, payload);
@@ -126,7 +126,7 @@ export function CustomizeDialog({
               />
               <div className="min-w-0">
                 <DialogTitle className="font-display text-3xl">
-                  Customize your {product.name.split(" ").slice(-1)[0].toLowerCase()}
+                  Customize your {(product.name.split(" ").pop() ?? product.name).toLowerCase()}
                 </DialogTitle>
                 <DialogDescription className="line-clamp-2">{product.description}</DialogDescription>
                 <p className="mt-2 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">

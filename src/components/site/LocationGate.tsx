@@ -16,6 +16,7 @@ export function LocationGate() {
       }, 600);
       return () => clearTimeout(t);
     }
+    return undefined;
   }, [ready, branchId, asked]);
 
   return <BranchPicker open={open} onOpenChange={setOpen} />;
