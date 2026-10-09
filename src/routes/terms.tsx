@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Terms & Conditions — Blaze & Bun" },
       { name: "description", content: "The terms that apply when you order food, use rewards points or browse the Blaze & Bun website." },
       { property: "og:title", content: "Terms & Conditions — Blaze & Bun" },

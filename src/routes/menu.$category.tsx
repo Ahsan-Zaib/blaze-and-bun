@@ -18,6 +18,8 @@ export const Route = createFileRoute("/menu/$category")({
     const description = `${category.tagline}. Order ${category.name.toLowerCase()} from Blaze & Bun for delivery, pickup or dine-in.`;
     return {
       meta: [
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
         { title },
         { name: "description", content: description },
         { property: "og:title", content: title },

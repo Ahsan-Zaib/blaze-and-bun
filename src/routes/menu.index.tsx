@@ -5,6 +5,8 @@ import { MenuBrowser } from "@/components/site/MenuBrowser";
 export const Route = createFileRoute("/menu/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Full Menu — Blaze & Bun" },
       {
         name: "description",

@@ -24,6 +24,8 @@ import type { Branch, OrderStatus, Product } from "@/data/types";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Staff Dashboard — Blaze & Bun" },
       { name: "description", content: "Manage the Blaze & Bun menu, stock, live orders, branches, discounts, customers and sales performance." },
       { property: "og:title", content: "Staff Dashboard — Blaze & Bun" },

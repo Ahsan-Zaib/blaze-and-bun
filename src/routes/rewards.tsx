@@ -10,6 +10,8 @@ import { useStore } from "@/lib/store";
 export const Route = createFileRoute("/rewards")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Every Bite Counts — Blaze & Bun Rewards" },
       { name: "description", content: "Earn 10 points for every $1 at Blaze & Bun and swap them for fries, shakes, burgers and free delivery." },
       { property: "og:title", content: "Every Bite Counts — Blaze & Bun Rewards" },

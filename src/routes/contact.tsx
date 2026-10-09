@@ -11,6 +11,7 @@ import { branches } from "@/data/branches";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Contact Us — Blaze & Bun" },
       { name: "description", content: "Questions about an order, catering or a job at Blaze & Bun? Call a kitchen directly or send us a message." },
       { property: "og:title", content: "Contact Us — Blaze & Bun" },
