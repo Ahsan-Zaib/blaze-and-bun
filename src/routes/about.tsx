@@ -7,6 +7,7 @@ import chicken from "@/assets/food-chicken.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Our Story — Blaze & Bun" },
       { name: "description", content: "How Blaze & Bun grew from one charcoal grill into five kitchens obsessed with flame-grilled burgers, chicken and pizza." },
       { property: "og:title", content: "Our Story — Blaze & Bun" },

@@ -12,12 +12,14 @@ export const Route = createFileRoute("/menu/$category")({
   },
   head: ({ loaderData }) => {
     if (!loaderData)
-      return { meta: [{ title: "Category unavailable — Blaze & Bun" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Category unavailable — Blaze & Bun" }, { name: "description", content: "This Blaze & Bun menu category is unavailable." }, { property: "og:title", content: "Category unavailable — Blaze & Bun" }, { property: "og:description", content: "This Blaze & Bun menu category is unavailable." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { name: "robots", content: "noindex" }] };
     const { category } = loaderData;
     const title = `${category.name} — Blaze & Bun`;
     const description = `${category.tagline}. Order ${category.name.toLowerCase()} from Blaze & Bun for delivery, pickup or dine-in.`;
     return {
       meta: [
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
         { title },
         { name: "description", content: description },
         { property: "og:title", content: title },

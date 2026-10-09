@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "FAQ — Blaze & Bun" },
       { name: "description", content: "Delivery times, allergens, order changes, rewards points and payment — the answers to the questions we get most." },
       { property: "og:title", content: "FAQ — Blaze & Bun" },

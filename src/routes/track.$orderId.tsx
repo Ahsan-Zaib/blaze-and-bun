@@ -11,6 +11,8 @@ import type { OrderStatus } from "@/data/types";
 export const Route = createFileRoute("/track/$orderId")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Track Your Order — Blaze & Bun" },
       { name: "description", content: "Follow your Blaze & Bun order from the grill to your door." },
       { property: "og:title", content: "Track Your Order — Blaze & Bun" },

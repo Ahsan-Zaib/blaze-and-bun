@@ -18,6 +18,8 @@ import type { CartItem } from "@/data/types";
 export const Route = createFileRoute("/cart")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Your Bag — Blaze & Bun" },
       { name: "description", content: "Review your Blaze & Bun order, edit customizations, apply a promo code and add a tip for the crew." },
       { property: "og:title", content: "Your Bag — Blaze & Bun" },

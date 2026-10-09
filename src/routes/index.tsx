@@ -15,6 +15,8 @@ import { useStore } from "@/lib/store";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Blaze & Bun — Flame-grilled burgers delivered hot" },
       {
         name: "description",

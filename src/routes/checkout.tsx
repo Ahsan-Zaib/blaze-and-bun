@@ -17,6 +17,8 @@ import type { OrderType, PaymentMethod } from "@/data/types";
 export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Checkout — Blaze & Bun" },
       { name: "description", content: "Confirm your details, choose delivery or pickup and place your Blaze & Bun order." },
       { property: "og:title", content: "Checkout — Blaze & Bun" },
