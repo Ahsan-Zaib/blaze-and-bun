@@ -18,7 +18,7 @@ export const Route = createFileRoute("/product/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData)
-      return { meta: [{ title: "Item unavailable — Blaze & Bun" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Item unavailable — Blaze & Bun" }, { name: "description", content: "This Blaze & Bun menu item is unavailable." }, { property: "og:title", content: "Item unavailable — Blaze & Bun" }, { property: "og:description", content: "This Blaze & Bun menu item is unavailable." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { name: "robots", content: "noindex" }] };
     const p = loaderData.product;
     return {
       meta: [
