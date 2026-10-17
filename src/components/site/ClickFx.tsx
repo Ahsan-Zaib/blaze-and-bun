@@ -39,6 +39,40 @@ export function ClickFx() {
       document.body.appendChild(layer);
       setTimeout(() => layer.remove(), 800);
     }
+    /** Big flame burst: a wall of fire that flares up and burns away. */
+    function fireBurst(x: number, y: number) {
+      const layer = document.createElement("div");
+      layer.className = "fx-layer";
+      layer.style.left = `${x}px`;
+      layer.style.top = `${y}px`;
+      const flash = document.createElement("span");
+      flash.className = "fx-fire-flash";
+      layer.appendChild(flash);
+      for (let i = 0; i < 14; i++) {
+        const f = document.createElement("span");
+        f.className = "fx-flame";
+        f.textContent = ["🔥", "🌶️", "✨"][Math.floor(Math.random() * 3)] ?? "🔥";
+        const a = -Math.PI / 2 + (Math.random() - 0.5) * 2.2;
+        const d = 40 + Math.random() * 90;
+        f.style.setProperty("--dx", `${Math.cos(a) * d}px`);
+        f.style.setProperty("--dy", `${Math.sin(a) * d - 30}px`);
+        f.style.setProperty("--fs", `${14 + Math.random() * 22}px`);
+        f.style.animationDelay = `${Math.random() * 0.12}s`;
+        f.setAttribute("aria-hidden", "true");
+        layer.appendChild(f);
+      }
+      for (let i = 0; i < 10; i++) {
+        const s = document.createElement("span");
+        s.className = "fx-spark";
+        const a = Math.random() * Math.PI * 2;
+        const d = 30 + Math.random() * 50;
+        s.style.setProperty("--dx", `${Math.cos(a) * d}px`);
+        s.style.setProperty("--dy", `${Math.sin(a) * d}px`);
+        layer.appendChild(s);
+      }
+      document.body.appendChild(layer);
+      setTimeout(() => layer.remove(), 1100);
+    }
     document.addEventListener("pointerdown", onDown);
     return () => document.removeEventListener("pointerdown", onDown);
   }, []);
