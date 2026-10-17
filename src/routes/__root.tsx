@@ -18,6 +18,7 @@ import { Footer } from "@/components/site/Footer";
 import { OrderBar } from "@/components/site/OrderBar";
 import { LocationGate } from "@/components/site/LocationGate";
 import { StoreProvider } from "@/lib/store";
+import { ClickFx, PageTransition } from "@/components/site/ClickFx";
 
 function NotFoundComponent() {
   return (
@@ -158,12 +159,15 @@ function RootComponent() {
           <Header />
           <main className="flex-1">
             {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-            <Outlet />
+            <PageTransition>
+              <Outlet />
+            </PageTransition>
           </main>
           <Footer />
         </div>
         <OrderBar />
         <LocationGate />
+        <ClickFx />
         <Toaster position="top-center" richColors />
       </StoreProvider>
     </QueryClientProvider>
