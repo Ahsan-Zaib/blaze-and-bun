@@ -43,6 +43,7 @@ export function Header() {
             <Link
               key={l.to}
               to={l.to}
+              {...(l.to === "/menu" ? { "data-fx-fire": true } : {})}
               className={cn(
                 "rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
                 pathname.startsWith(l.to) && "bg-secondary text-foreground",
@@ -102,6 +103,7 @@ export function Header() {
                   <Link
                     key={l.to}
                     to={l.to}
+                    {...(l.to === "/menu" ? { "data-fx-fire": true } : {})}
                     onClick={() => setSheetOpen(false)}
                     className="rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-secondary"
                   >
