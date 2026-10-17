@@ -11,6 +11,10 @@ export function ClickFx() {
     function onDown(e: PointerEvent) {
       const target = (e.target as HTMLElement | null)?.closest("button, a, [role=button], [role=tab]");
       if (!target) return;
+      if (target.hasAttribute("data-fx-fire")) {
+        fireBurst(e.clientX, e.clientY);
+        return;
+      }
       const layer = document.createElement("div");
       layer.className = "fx-layer";
       layer.style.left = `${e.clientX}px`;
