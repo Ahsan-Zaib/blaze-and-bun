@@ -33,7 +33,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4">
-        <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="Blaze and Bun home">
+        <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="Blaze and Bun home" data-fx-fire>
           <Flame className="size-6 text-primary" aria-hidden />
           <span className="font-display text-2xl tracking-wide">Blaze &amp; Bun</span>
         </Link>
@@ -90,7 +90,7 @@ export function Header() {
 
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu" data-fx-fire>
+              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
                 <MenuIcon className="size-5" aria-hidden />
               </Button>
             </SheetTrigger>
