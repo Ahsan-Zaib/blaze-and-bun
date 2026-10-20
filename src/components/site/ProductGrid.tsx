@@ -27,7 +27,7 @@ export function ProductGrid({
       <div className={cn("grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", className)}>
         {products.map((p, i) =>
           animate ? (
-            <Reveal key={p.id} delay={Math.min(i, 6) * 60} className="h-full">
+            <Reveal key={p.id} delay={Math.min(i, 6) * 60} className="h-full" kind="food">
               <ProductCard product={p} onCustomize={customize} className="h-full" />
             </Reveal>
           ) : (

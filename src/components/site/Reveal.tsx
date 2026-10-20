@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /** Reveals children once they scroll into view. Motion-reduced users see them instantly. */
@@ -46,7 +46,7 @@ export function Reveal({
       data-reveal={kind}
       data-visible={shown}
       className={cn("scroll-reveal", className)}
-      style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
+      style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
     >
       {children}
     </div>
