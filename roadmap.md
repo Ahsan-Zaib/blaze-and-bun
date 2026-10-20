@@ -1,5 +1,6 @@
 # Deployment readiness
 
+- [ ] Replace basic scroll reveals with more expressive, coordinated text and image motion.
 - [x] Install and verify the uploaded favicon.
 - [x] Verify page metadata and browser checks.
 - [x] Apply the required package security update.
