@@ -6,10 +6,12 @@ export function Reveal({
   children,
   delay = 0,
   className,
+  kind = "editorial",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  kind?: "editorial" | "food";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(false);
@@ -17,6 +19,14 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setShown(true);
+      return;
+    }
+    if (!("IntersectionObserver" in window)) {
+      setShown(true);
+      return;
+    }
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
@@ -33,8 +43,10 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      className={cn("transition-all duration-700 ease-out", shown ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0", className)}
-      style={{ transitionDelay: `${delay}ms` }}
+      data-reveal={kind}
+      data-visible={shown}
+      className={cn("scroll-reveal", className)}
+      style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
     >
       {children}
     </div>
